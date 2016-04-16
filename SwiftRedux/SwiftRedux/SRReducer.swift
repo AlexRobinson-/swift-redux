@@ -12,8 +12,11 @@ class SRReducer<T: SRState>: SRReducerProtocol {
     
     typealias SomeStateType = T
  
+    final func handleAction(state: SRState?, action: SRAction) -> SRState {
+        return handleAction(state as? T, action: action)
+    }
     
     func handleAction(state: T?, action: SRAction) -> T {
-        return T();
+        fatalError("Override the handleAction<\(T.self)> function")
     }
 }

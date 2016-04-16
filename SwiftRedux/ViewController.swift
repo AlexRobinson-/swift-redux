@@ -14,24 +14,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var todoList: TodoList!
     
     var unsubscribe:(() -> Void)!
-    var store:SRStore<TodoState>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.store = SRStore<TodoState>(reducer: TodoReducer());
+        self.unsubscribe = rootStore.subscribe(self.render)
         
-        self.unsubscribe = store.subscribe(self.render)
+        self.addTodo.onAdd = {rootStore.dispatch(AddTodoAction(text: $0))}
         
-        self.addTodo.onAdd = {self.store.dispatch(AddTodoAction(text: $0))}
-        
-        self.todoList.onTodoSelect = {self.store.dispatch(RemoveTodoAction(index: $0))}
+        self.todoList.onTodoSelect = {rootStore.dispatch(RemoveTodoAction(index: $0))}
     }
     
     func render() {
-        self.todoList.setTodos(store.state.todoItems)
+        self.renderTodo(rootStore.state.states["todo"] as? TodoState)
     }
-
+    
+    private func renderTodo(state: TodoState?) {
+        self.todoList.setTodos(state?.todoItems ?? [])
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

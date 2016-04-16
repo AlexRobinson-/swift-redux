@@ -10,7 +10,7 @@ import Foundation
 
 struct TodoState:SRState {
     
-    let todoItems:[String]!
+    var todoItems:[String] = []
     
     init() {
         self.todoItems = []

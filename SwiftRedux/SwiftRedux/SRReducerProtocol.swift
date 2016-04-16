@@ -10,8 +10,6 @@ import Foundation
 
 protocol SRReducerProtocol {
     
-    associatedtype SomeStateType
-    
-    func handleAction(state: SomeStateType?, action: SRAction) -> SomeStateType
+    func handleAction(state: SRState?, action: SRAction) -> SRState
     
 }

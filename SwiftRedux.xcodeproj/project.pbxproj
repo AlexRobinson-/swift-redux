@@ -27,6 +27,8 @@
 		069F30471CC25E9000AFDAB9 /* SRState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F30391CC25E9000AFDAB9 /* SRState.swift */; };
 		069F30481CC25E9000AFDAB9 /* SRStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F303A1CC25E9000AFDAB9 /* SRStore.swift */; };
 		069F304B1CC25F4200AFDAB9 /* SRReducerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F304A1CC25F4200AFDAB9 /* SRReducerProtocol.swift */; };
+		069F304E1CC287C900AFDAB9 /* SRCombineReducersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F304D1CC287C900AFDAB9 /* SRCombineReducersState.swift */; };
+		069F30521CC28B8800AFDAB9 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F30511CC28B8800AFDAB9 /* RootReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		069F30391CC25E9000AFDAB9 /* SRState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRState.swift; sourceTree = "<group>"; };
 		069F303A1CC25E9000AFDAB9 /* SRStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRStore.swift; sourceTree = "<group>"; };
 		069F304A1CC25F4200AFDAB9 /* SRReducerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRReducerProtocol.swift; sourceTree = "<group>"; };
+		069F304D1CC287C900AFDAB9 /* SRCombineReducersState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRCombineReducersState.swift; path = CombineReducers/SRCombineReducersState.swift; sourceTree = "<group>"; };
+		069F30511CC28B8800AFDAB9 /* RootReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				069F30301CC25E9000AFDAB9 /* todo */,
+				069F30511CC28B8800AFDAB9 /* RootReducer.swift */,
 			);
 			path = reducers;
 			sourceTree = "<group>";
@@ -162,15 +167,24 @@
 		069F30341CC25E9000AFDAB9 /* SwiftRedux */ = {
 			isa = PBXGroup;
 			children = (
+				069F304C1CC287AB00AFDAB9 /* CombineReducers */,
 				069F304A1CC25F4200AFDAB9 /* SRReducerProtocol.swift */,
 				069F30351CC25E9000AFDAB9 /* SRAction.swift */,
-				069F30361CC25E9000AFDAB9 /* SRCombineReducers.swift */,
 				069F30371CC25E9000AFDAB9 /* SREmptyAction.swift */,
 				069F30381CC25E9000AFDAB9 /* SRReducer.swift */,
 				069F30391CC25E9000AFDAB9 /* SRState.swift */,
 				069F303A1CC25E9000AFDAB9 /* SRStore.swift */,
 			);
 			path = SwiftRedux;
+			sourceTree = "<group>";
+		};
+		069F304C1CC287AB00AFDAB9 /* CombineReducers */ = {
+			isa = PBXGroup;
+			children = (
+				069F30361CC25E9000AFDAB9 /* SRCombineReducers.swift */,
+				069F304D1CC287C900AFDAB9 /* SRCombineReducersState.swift */,
+			);
+			name = CombineReducers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +267,11 @@
 				069F30441CC25E9000AFDAB9 /* SRCombineReducers.swift in Sources */,
 				069F304B1CC25F4200AFDAB9 /* SRReducerProtocol.swift in Sources */,
 				069F30161CC25E7800AFDAB9 /* ViewController.swift in Sources */,
+				069F304E1CC287C900AFDAB9 /* SRCombineReducersState.swift in Sources */,
 				069F30461CC25E9000AFDAB9 /* SRReducer.swift in Sources */,
 				069F30141CC25E7800AFDAB9 /* AppDelegate.swift in Sources */,
 				069F30481CC25E9000AFDAB9 /* SRStore.swift in Sources */,
+				069F30521CC28B8800AFDAB9 /* RootReducer.swift in Sources */,
 				069F303F1CC25E9000AFDAB9 /* UIViewFromXib.swift in Sources */,
 				069F303D1CC25E9000AFDAB9 /* TodoList.swift in Sources */,
 				069F30411CC25E9000AFDAB9 /* TodoReducer.swift in Sources */,

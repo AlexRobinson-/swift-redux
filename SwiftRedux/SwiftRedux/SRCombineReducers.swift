@@ -24,3 +24,29 @@ import Foundation
 //        )
 //    }
 //}
+
+class SRCombineReducers: SRReducer<SRCombineReducersState> {
+    
+    let reducers: [String: SRReducerProtocol]
+    
+    init(reducers: [String: SRReducerProtocol]) {
+        self.reducers = reducers
+    }
+    
+    override func handleAction(state: SRCombineReducersState?, action: SRAction) -> SRCombineReducersState {
+        
+        let newState = state ?? SRCombineReducersState()
+        
+        let reduceSubState = {(prevNewStates:[String:  SRState], currentStateRef: String) -> [String:  SRState] in
+            var newStates = prevNewStates
+            newStates[currentStateRef] = self.reducers[currentStateRef]!.handleAction(newState.states[currentStateRef], action: action)
+            return newStates
+        }
+    
+        return SRCombineReducersState(states:
+            self.reducers.keys
+                .reduce([String:  SRState](), combine:reduceSubState)
+        )
+    }
+    
+}
