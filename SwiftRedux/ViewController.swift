@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         self.unsubscribe = store.subscribe(self.render)
         
         self.addTodo.onAdd = {self.store.dispatch(AddTodoAction(text: $0))}
+        
+        self.todoList.onTodoSelect = {self.store.dispatch(RemoveTodoAction(index: $0))}
     }
     
     func render() {

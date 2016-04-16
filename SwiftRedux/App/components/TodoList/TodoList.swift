@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoList: UIViewFromXib, UITableViewDataSource {
+class TodoList: UIViewFromXib, UITableViewDelegate, UITableViewDataSource {
     
     // MARK Private Properties
     private var todos:[String] = ["Initial"]
@@ -25,6 +25,7 @@ class TodoList: UIViewFromXib, UITableViewDataSource {
     }
     
     override func setup() {
+        self.tableView.delegate = self;
         self.tableView.dataSource = self;
     }
     

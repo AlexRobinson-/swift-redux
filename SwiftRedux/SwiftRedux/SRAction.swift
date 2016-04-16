@@ -10,6 +10,6 @@ import Foundation
 
 protocol SRAction {
     
-    var type:String {get}
+    
     
 }

@@ -10,12 +10,20 @@ import Foundation
 
 struct AddTodoAction:SRAction {
     
-    let type = "ADD_TODO"
-    
     let text:String!
     
     init(text: String) {
         self.text = text
+    }
+    
+}
+
+struct RemoveTodoAction:SRAction {
+    
+    let index:Int!
+    
+    init(index: Int) {
+        self.index = index
     }
     
 }

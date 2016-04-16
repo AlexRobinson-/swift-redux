@@ -14,6 +14,8 @@ class TodoReducer: SRReducer<TodoState> {
         switch(action) {
             case is AddTodoAction:
                 return handleAddTodo(state, action: action as! AddTodoAction)
+            case is RemoveTodoAction:
+                return handleRemoveTodo(state, action: action as! RemoveTodoAction)
             default:
                 return TodoState(todoItems: ["Testing"] + (state?.todoItems ?? []))
         }
@@ -22,5 +24,12 @@ class TodoReducer: SRReducer<TodoState> {
     private func handleAddTodo(state: TodoState?, action: AddTodoAction) -> TodoState {
         return TodoState(todoItems: [action.text] + (state?.todoItems ?? []))
     }
+    
+    private func handleRemoveTodo(state: TodoState?, action: RemoveTodoAction) -> TodoState {
+        var updatedItems = state?.todoItems ?? []
+        updatedItems.removeAtIndex(action.index)
+        return TodoState(todoItems: updatedItems)
+    }
+
     
 }
