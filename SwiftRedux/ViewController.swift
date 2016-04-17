@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var addTodo: AddTodo!
     @IBOutlet weak var todoList: TodoList!
+    @IBOutlet weak var todoFilter: SelectTodoFilter!
     
     var unsubscribe:(() -> Void)!
     
@@ -22,15 +23,18 @@ class ViewController: UIViewController {
         
         self.addTodo.onAdd = {rootStore.dispatch(AddTodoAction(text: $0))}
         
-        self.todoList.onTodoSelect = {rootStore.dispatch(RemoveTodoAction(index: $0))}
+        self.todoFilter.onSelectFilter = {rootStore.dispatch(FilterTodosAction(filter: $0))}
+        
+        self.todoList.onTodoSelect = {rootStore.dispatch(ToggleTodoStatusAction(id: $0.id))}
     }
     
     func render() {
+        print("rendering")
         self.renderTodo(rootStore.state.states["todo"] as? TodoState)
     }
     
     private func renderTodo(state: TodoState?) {
-        self.todoList.setTodos(state?.todoItems ?? [])
+        self.todoList.setTodos((state?.todoItems ?? []).filter{$0.status == state?.filter || state?.filter == .All})
     }
     
     override func didReceiveMemoryWarning() {

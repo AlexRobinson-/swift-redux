@@ -10,13 +10,14 @@ import Foundation
 
 struct TodoState:SRState {
     
-    var todoItems:[String] = []
+    var todoItems:[Todo] = []
+    var filter:TodoStatus = .Todo
     
     init() {
         self.todoItems = []
     }
     
-    init(todoItems: [String]) {
+    init(todoItems: [Todo]) {
         self.todoItems = todoItems
     }
     

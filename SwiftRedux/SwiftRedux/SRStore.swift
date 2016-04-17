@@ -8,13 +8,14 @@
 
 import Foundation
 
+typealias SRListener = () -> Void;
+
 class SRStore<SomeState: SRState> {
     
     private(set) var state:SomeState!
     private(set) var reducer:SRReducer<SomeState>!
     
-    typealias Listener = () -> Void;
-    var listeners:[Listener] = [];
+    var listeners:[SRListener] = [];
     
     
     init(reducer: SRReducer<SomeState>) {
@@ -29,7 +30,7 @@ class SRStore<SomeState: SRState> {
         }
     }
     
-    func subscribe(listener : Listener) -> (() -> Void) {
+    func subscribe(listener : SRListener) -> (() -> Void) {
         self.listeners = [listener];
         
         return {() in print("test")};

@@ -23,24 +23,33 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrL-Bp-luv" customClass="TodoList" customModule="SwiftRedux" customModuleProvider="target">
-                                <rect key="frame" x="20" y="71" width="560" height="509"/>
+                                <rect key="frame" x="20" y="125" width="560" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHh-i0-AYu" customClass="SelectTodoFilter" customModule="SwiftRedux" customModuleProvider="target">
+                                <rect key="frame" x="20" y="71" width="560" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kbN-5M-fFV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0bb-fJ-epX"/>
-                            <constraint firstItem="kbN-5M-fFV" firstAttribute="leading" secondItem="FrL-Bp-luv" secondAttribute="leading" id="7IK-tW-Nzq"/>
-                            <constraint firstItem="FrL-Bp-luv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="71" id="BMh-dV-Rwi"/>
-                            <constraint firstItem="FrL-Bp-luv" firstAttribute="top" secondItem="kbN-5M-fFV" secondAttribute="bottom" constant="8" symbolic="YES" id="R9w-GL-zUG"/>
-                            <constraint firstItem="kbN-5M-fFV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Rhk-hf-Fmv"/>
-                            <constraint firstAttribute="bottom" secondItem="FrL-Bp-luv" secondAttribute="bottom" constant="20" symbolic="YES" id="kJz-ec-MfC"/>
-                            <constraint firstItem="kbN-5M-fFV" firstAttribute="trailing" secondItem="FrL-Bp-luv" secondAttribute="trailing" id="t4C-eS-pGG"/>
-                            <constraint firstItem="kbN-5M-fFV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yoJ-sR-J7P"/>
+                            <constraint firstItem="FrL-Bp-luv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="125" id="17O-0X-3U8"/>
+                            <constraint firstItem="kbN-5M-fFV" firstAttribute="leading" secondItem="UHh-i0-AYu" secondAttribute="leading" id="31D-u8-osh"/>
+                            <constraint firstAttribute="bottom" secondItem="FrL-Bp-luv" secondAttribute="bottom" constant="20" symbolic="YES" id="5Wt-LK-e2n"/>
+                            <constraint firstItem="kbN-5M-fFV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7qo-Ks-iKb"/>
+                            <constraint firstItem="FrL-Bp-luv" firstAttribute="top" secondItem="UHh-i0-AYu" secondAttribute="bottom" constant="11" id="FDX-Yo-T0b"/>
+                            <constraint firstItem="kbN-5M-fFV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="H9E-4f-Gcy"/>
+                            <constraint firstItem="UHh-i0-AYu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="71" id="NOq-Zq-PS2"/>
+                            <constraint firstItem="UHh-i0-AYu" firstAttribute="top" secondItem="kbN-5M-fFV" secondAttribute="bottom" constant="8" symbolic="YES" id="Pn4-gM-uXU"/>
+                            <constraint firstItem="UHh-i0-AYu" firstAttribute="leading" secondItem="FrL-Bp-luv" secondAttribute="leading" id="RJa-AY-L0a"/>
+                            <constraint firstItem="kbN-5M-fFV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cFF-b4-OIC"/>
+                            <constraint firstItem="kbN-5M-fFV" firstAttribute="trailing" secondItem="UHh-i0-AYu" secondAttribute="trailing" id="feb-L0-ycB"/>
+                            <constraint firstItem="UHh-i0-AYu" firstAttribute="trailing" secondItem="FrL-Bp-luv" secondAttribute="trailing" id="q8V-Ah-Crm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addTodo" destination="kbN-5M-fFV" id="8hy-hj-Fx4"/>
+                        <outlet property="todoFilter" destination="UHh-i0-AYu" id="6pF-4P-K67"/>
                         <outlet property="todoList" destination="FrL-Bp-luv" id="f4g-6s-czT"/>
                     </connections>
                 </viewController>

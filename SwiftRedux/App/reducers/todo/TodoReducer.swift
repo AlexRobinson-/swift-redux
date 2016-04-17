@@ -17,8 +17,10 @@ class TodoReducer: SRReducer<TodoState> {
         switch(action) {
             case is AddTodoAction:
                 return handleAddTodo(newState, action: action as! AddTodoAction)
-            case is RemoveTodoAction:
-                return handleRemoveTodo(newState, action: action as! RemoveTodoAction)
+            case is ToggleTodoStatusAction:
+                return handleToggleTodoStatus(newState, action: action as! ToggleTodoStatusAction)
+            case is FilterTodosAction:
+                return handleFilterTodos(newState, action: action as! FilterTodosAction)
             default:
                 return newState
         }
@@ -26,15 +28,42 @@ class TodoReducer: SRReducer<TodoState> {
     
     private func handleAddTodo(state: TodoState, action: AddTodoAction) -> TodoState {
         var newState = state;
-        newState.todoItems = [action.text] + state.todoItems
+        newState.todoItems = [Todo(text: action.text)] + state.todoItems
         return newState
     }
     
     private func handleRemoveTodo(state: TodoState, action: RemoveTodoAction) -> TodoState {
         var newState = state;
-        newState.todoItems.removeAtIndex(action.index)
+        newState.todoItems = state.todoItems.map{
+            if $0.id != action.id {
+                return $0
+            }
+            
+            $0.status = .Done
+            
+            return $0
+        }
+        return newState
+    }
+    
+    private func handleToggleTodoStatus(state: TodoState, action: ToggleTodoStatusAction) -> TodoState {
+        var newState = state;
+        newState.todoItems = state.todoItems.map{
+            if $0.id != action.id {
+                return $0
+            }
+            
+            $0.status = $0.status == .Done ? .Todo : .Done
+            
+            return $0
+        }
         return newState
     }
 
+    private func handleFilterTodos(state: TodoState, action: FilterTodosAction) -> TodoState {
+        var newState = state;
+        newState.filter = action.filter
+        return newState
+    }
     
 }

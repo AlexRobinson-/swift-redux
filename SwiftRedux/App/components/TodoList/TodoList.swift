@@ -11,10 +11,10 @@ import UIKit
 class TodoList: UIViewFromXib, UITableViewDelegate, UITableViewDataSource {
     
     // MARK Private Properties
-    private var todos:[String] = ["Initial"]
+    private var todos:[Todo] = []
     
     // MARK Public Properties
-    var onTodoSelect: ((index:Int) -> Void)?
+    var onTodoSelect: ((todo: Todo) -> Void)?
     
     // MARK Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +30,7 @@ class TodoList: UIViewFromXib, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: Public functions
-    func setTodos(todos:[String]) {
+    func setTodos(todos:[Todo]) {
         self.todos = todos;
         
         if(self.tableView != nil) {
@@ -40,9 +40,7 @@ class TodoList: UIViewFromXib, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: TableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.onTodoSelect != nil {
-            self.onTodoSelect!(index: indexPath.row)
-        }
+        self.onTodoSelect?(todo: self.todos[indexPath.row])
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,7 +49,7 @@ class TodoList: UIViewFromXib, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel!.text = self.todos[indexPath.row]
+        cell.textLabel!.text = self.todos[indexPath.row].text
         
         return cell
     }

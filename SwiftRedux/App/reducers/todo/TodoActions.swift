@@ -20,10 +20,28 @@ struct AddTodoAction:SRAction {
 
 struct RemoveTodoAction:SRAction {
     
-    let index:Int!
+    let id:Int!
     
-    init(index: Int) {
-        self.index = index
+    init(id: Int) {
+        self.id = id
+    }
+    
+}
+
+struct ToggleTodoStatusAction:SRAction {
+    let id:Int!
+    
+    init(id: Int) {
+        self.id = id
+    }
+}
+
+struct FilterTodosAction:SRAction {
+    
+    let filter:TodoStatus!
+    
+    init(filter:TodoStatus) {
+        self.filter = filter
     }
     
 }

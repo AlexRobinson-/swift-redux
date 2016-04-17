@@ -29,6 +29,9 @@
 		069F304B1CC25F4200AFDAB9 /* SRReducerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F304A1CC25F4200AFDAB9 /* SRReducerProtocol.swift */; };
 		069F304E1CC287C900AFDAB9 /* SRCombineReducersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F304D1CC287C900AFDAB9 /* SRCombineReducersState.swift */; };
 		069F30521CC28B8800AFDAB9 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F30511CC28B8800AFDAB9 /* RootReducer.swift */; };
+		069F30551CC29BC200AFDAB9 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F30541CC29BC200AFDAB9 /* TodoItem.swift */; };
+		069F30581CC29CBE00AFDAB9 /* SelectTodoFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069F30571CC29CBE00AFDAB9 /* SelectTodoFilter.xib */; };
+		069F305A1CC29CCB00AFDAB9 /* SelectTodoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F30591CC29CCB00AFDAB9 /* SelectTodoFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		069F304A1CC25F4200AFDAB9 /* SRReducerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRReducerProtocol.swift; sourceTree = "<group>"; };
 		069F304D1CC287C900AFDAB9 /* SRCombineReducersState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRCombineReducersState.swift; path = CombineReducers/SRCombineReducersState.swift; sourceTree = "<group>"; };
 		069F30511CC28B8800AFDAB9 /* RootReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
+		069F30541CC29BC200AFDAB9 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoItem.swift; path = models/TodoItem.swift; sourceTree = "<group>"; };
+		069F30571CC29CBE00AFDAB9 /* SelectTodoFilter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectTodoFilter.xib; path = TodoFilterSelection/SelectTodoFilter.xib; sourceTree = "<group>"; };
+		069F30591CC29CCB00AFDAB9 /* SelectTodoFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTodoFilter.swift; path = SelectTodoFilter/SelectTodoFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		069F30251CC25E9000AFDAB9 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				069F30531CC29BB300AFDAB9 /* models */,
 				069F30261CC25E9000AFDAB9 /* components */,
 				069F302D1CC25E9000AFDAB9 /* helpers */,
 				069F302F1CC25E9000AFDAB9 /* reducers */,
@@ -113,6 +120,7 @@
 		069F30261CC25E9000AFDAB9 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				069F30561CC29C8700AFDAB9 /* SelectTodoFilter */,
 				069F30271CC25E9000AFDAB9 /* AddTodo */,
 				069F302A1CC25E9000AFDAB9 /* TodoList */,
 			);
@@ -187,6 +195,23 @@
 			name = CombineReducers;
 			sourceTree = "<group>";
 		};
+		069F30531CC29BB300AFDAB9 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				069F30541CC29BC200AFDAB9 /* TodoItem.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		069F30561CC29C8700AFDAB9 /* SelectTodoFilter */ = {
+			isa = PBXGroup;
+			children = (
+				069F30571CC29CBE00AFDAB9 /* SelectTodoFilter.xib */,
+				069F30591CC29CCB00AFDAB9 /* SelectTodoFilter.swift */,
+			);
+			name = SelectTodoFilter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,6 +273,7 @@
 				069F301E1CC25E7800AFDAB9 /* LaunchScreen.storyboard in Resources */,
 				069F303E1CC25E9000AFDAB9 /* TodoList.xib in Resources */,
 				069F301B1CC25E7800AFDAB9 /* Assets.xcassets in Resources */,
+				069F30581CC29CBE00AFDAB9 /* SelectTodoFilter.xib in Resources */,
 				069F30191CC25E7800AFDAB9 /* Main.storyboard in Resources */,
 				069F303C1CC25E9000AFDAB9 /* AddTodo.xib in Resources */,
 			);
@@ -270,6 +296,7 @@
 				069F304E1CC287C900AFDAB9 /* SRCombineReducersState.swift in Sources */,
 				069F30461CC25E9000AFDAB9 /* SRReducer.swift in Sources */,
 				069F30141CC25E7800AFDAB9 /* AppDelegate.swift in Sources */,
+				069F30551CC29BC200AFDAB9 /* TodoItem.swift in Sources */,
 				069F30481CC25E9000AFDAB9 /* SRStore.swift in Sources */,
 				069F30521CC28B8800AFDAB9 /* RootReducer.swift in Sources */,
 				069F303F1CC25E9000AFDAB9 /* UIViewFromXib.swift in Sources */,
@@ -277,6 +304,7 @@
 				069F30411CC25E9000AFDAB9 /* TodoReducer.swift in Sources */,
 				069F30401CC25E9000AFDAB9 /* TodoActions.swift in Sources */,
 				069F30451CC25E9000AFDAB9 /* SREmptyAction.swift in Sources */,
+				069F305A1CC29CCB00AFDAB9 /* SelectTodoFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
